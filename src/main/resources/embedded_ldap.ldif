@@ -1,0 +1,88 @@
+dn: dc=ufanet,dc=com
+objectclass: top
+objectclass: domain
+objectclass: extensibleObject
+dc: ufanet
+
+dn: ou=groups,dc=ufanet,dc=com
+objectclass: top
+objectclass: organizationalUnit
+ou: groups
+
+dn: ou=subgroups,ou=groups,dc=ufanet,dc=com
+objectclass: top
+objectclass: organizationalUnit
+ou: subgroups
+
+dn: ou=people,dc=ufanet,dc=com
+objectclass: top
+objectclass: organizationalUnit
+ou: people
+
+dn: ou=otherpeople,dc=ufanet,dc=com
+objectclass: top
+objectclass: organizationalUnit
+ou: otherpeople
+
+dn: uid=ilnaz,ou=people,dc=ufanet,dc=com
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Ilnaz Zaripov
+sn: Zaripov
+uid: ilnaz
+userPassword: ilnaz_pas
+description: admin
+
+dn: uid=aidar,ou=people,dc=ufanet,dc=com
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Aidar Musin
+sn: Musin
+uid: aidar
+userPassword: aidar_pas
+description: user
+
+dn: uid=ivan,ou=otherpeople,dc=ufanet,dc=com
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Ivan Ivanov
+sn: Ivanov
+uid: ivan
+userPassword: ivan_pas
+description: user
+
+dn: cn=developers,ou=groups,dc=ufanet,dc=com
+objectclass: top
+objectclass: groupOfUniqueNames
+cn: developers
+ou: developer
+uniqueMember: uid=ilnaz,ou=people,dc=ufanet,dc=com
+uniqueMember: uid=aidar,ou=people,dc=ufanet,dc=com
+
+dn: cn=users, ou=subgroups,ou=groups,dc=ufanet,dc=com
+objectclass: top
+objectclass: groupOfUniqueNames
+cn: users
+ou: user
+uniqueMember: uid=aidar,ou=people,dc=ufanet,dc=com
+uniqueMember: uid=ivan,ou=otherpeople,dc=ufanet,dc=com
+
+dn: cn=admins,ou=subgroups,ou=groups,dc=ufanet,dc=com
+objectclass: top
+objectclass: groupOfUniqueNames
+cn: admins
+ou: admin
+uniqueMember: uid=ilnaz,ou=people,dc=ufanet,dc=com
+
+dn: cn=managers,ou=subgroups,ou=groups,dc=ufanet,dc=com
+objectclass: top
+objectclass: groupOfUniqueNames
+cn: managers
+ou: manager
+uniqueMember: uid=ivan,ou=otherpeople,dc=ufanet,dc=com
