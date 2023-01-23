@@ -21,5 +21,4 @@ public class ResourceController
 
     @GetMapping("/")
     public String def(){return "welcome";}
-
 }
