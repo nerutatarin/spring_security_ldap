@@ -32,10 +32,11 @@ public class LdapAuthenticationProvider implements AuthenticationProvider
 
     private void initContext()
     {   contextSource = new LdapContextSource();
-        contextSource.setUrl(environment.getProperty("ldap.server.url"));
+        //contextSource.setUrl(environment.getProperty("ldap.server.url"));
+        contextSource.setUrl("ldap://core.ufanet.ru:389/dc=core,dc=ufanet,dc=ru");
         contextSource.setAnonymousReadOnly(true);
-        contextSource.setUserDn("uid={0},ou=people");
-        //contextSource.setBase("ou=groups");
+        contextSource.setUserDn("uid={0},ou=employeeID");
+        contextSource.setBase("ou=employeeID");
         contextSource.afterPropertiesSet();
 
         ldapTemplate = new LdapTemplate(contextSource);

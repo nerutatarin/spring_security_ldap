@@ -5,12 +5,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/resource")
+@RequestMapping
 public class ResourceController
 {
-    @GetMapping
-    public String resource(){
-        return "Hello World";
+    @GetMapping("/login")
+    public String login(){
+        return "login";
     }
+
+
+    @GetMapping("/home")
+    public String home(){
+        return "home";
+    }
+
+    @GetMapping("/")
+    public String def(){return "welcome";}
 
 }

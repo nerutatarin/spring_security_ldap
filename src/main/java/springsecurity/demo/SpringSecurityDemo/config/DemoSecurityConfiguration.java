@@ -1,3 +1,4 @@
+/*
 package springsecurity.demo.SpringSecurityDemo.config;
 
 import org.springframework.context.annotation.Bean;
@@ -25,21 +26,26 @@ public class DemoSecurityConfiguration extends WebSecurityConfigurerAdapter
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception
     {
-        auth.authenticationProvider(new LdapAuthenticationProvider(env)).eraseCredentials(false);
-               /* .ldapAuthentication()
+        auth
+                .authenticationProvider(new LdapAuthenticationProvider(env))
+                .eraseCredentials(false)
+
+                .ldapAuthentication()
                 .passwordCompare()
                 .passwordEncoder(new BCryptPasswordEncoder())
-                .passwordAttribute("userPassword");*/
+                .passwordAttribute("userPassword");
     }
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception
     {
         httpSecurity
+
                 .authorizeRequests()
                 .antMatchers("/auth-server").permitAll()
                 .anyRequest()
                 .authenticated()
+
                 .and()
                 .csrf()
                 .disable()
@@ -58,3 +64,4 @@ public class DemoSecurityConfiguration extends WebSecurityConfigurerAdapter
     }
 
 }
+*/
